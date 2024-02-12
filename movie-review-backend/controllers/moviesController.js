@@ -32,6 +32,35 @@ class MoviesController {
       res.status(400).json({ message: error.message });
     }
   }
+
+  // Update a movie
+  static async updateMovie(req, res) {
+    try {
+      const updatedMovie = await Movie.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        { new: true }
+      );
+      if (!updatedMovie)
+        return res.status(404).json({ message: "Movie not found" });
+      res.json(updatedMovie);
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
+  }
+
+  // Delete a movie
+  static async deleteMovie(req, res) {
+    try {
+      const result = await Movie.deleteOne({ _id: req.params.id });
+      if (result.deletedCount === 0) {
+        return res.status(404).json({ message: "Movie not found" });
+      }
+      res.json({ message: "Movie deleted successfully" });
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  }
 }
 
 module.exports = MoviesController;
