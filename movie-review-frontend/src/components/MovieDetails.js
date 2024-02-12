@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getMovieById, deleteReview } from "../api";
+import { getMovieById, deleteReview, deleteMovie } from "../api";
 import ReviewForm from "./ReviewForm";
 
 const MovieDetails = () => {
@@ -23,6 +23,15 @@ const MovieDetails = () => {
 
   const handleEditMovie = () => {
     navigate(`/edit-movie/${id}`); // Navigate to the edit movie route
+  };
+
+  const handleDeleteMovie = async () => {
+    try {
+      await deleteMovie(id);
+      navigate("/");
+    } catch (error) {
+      console.error("Error occurred while deleting the movie:", error);
+    }
   };
 
   const onReviewAdded = useCallback((newReview) => {
@@ -67,6 +76,7 @@ const MovieDetails = () => {
       <p>Release Date: {new Date(movie.releaseDate).toDateString()}</p>
       <p>Average Rating: {movie.averageRating}</p>
       <button onClick={handleEditMovie}>Edit Movie</button>
+      <button onClick={handleDeleteMovie}>Delete Movie</button>
 
       <h2>Reviews</h2>
       <ul>
