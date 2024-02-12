@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #1c1c1c; /* Dark background color */
+  color: #f5de50; /* Golden yellow text color */
+  margin: 0;
+}
+
+.movie-list-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.movie-list-input {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: 2px solid #f5de50; /* Border in golden yellow color */
+  background-color: #fff; /* Set input background to white */
+  color: #333; /* Input text color */
+  margin-bottom: 20px;
+  outline: none; /* Remove border on focus */
+}
+
+.movie-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.movie-card {
+  width: calc(25% - 20px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  position: relative;
+  text-align: left;
+  background-color: #333; /* Make card background dark */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.rating {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  background-color: #f5de50; /* Apply golden yellow background */
+  color: #333; /* Set text color to dark */
+  padding: 5px;
+  border-radius: 10px; /* Make corners rounded */
+  font-size: 14px;
+  display: flex;
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+  min-width: 36px; /* Minimum width for rating area */
+}
+
+.movie-card a {
+  text-decoration: none;
+  color: #f5de50; /* Set links to golden yellow */
+  font-weight: bold;
+  transition: color 0.3s; /* Add color transition animation */
+}
+
+.movie-card a:hover {
+  color: #fff; /* Change color to white on hover */
+}
+
+.movie-card:hover {
+  transform: scale(1.05); /* Scale up card on hover */
+  z-index: 10; /* Ensure it's above other cards */
+}

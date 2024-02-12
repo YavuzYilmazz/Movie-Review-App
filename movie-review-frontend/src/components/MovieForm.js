@@ -83,7 +83,7 @@ const MovieForm = () => {
           required
         />
       </div>
-      <button type="submit">{id ? "Update" : "Add"} Movie</button>
+      <button type="submit">{id ? "Edit" : "Add"} Movie</button>
     </form>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getMovies } from "../api";
+import "../styles/MovieList.css";
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
@@ -24,24 +25,25 @@ const MovieList = () => {
   );
 
   return (
-    <div>
+    <div className="movie-list-container">
       <h1>Movie List</h1>
       <input
         type="text"
+        className="movie-list-input"
         placeholder="Search for movies..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <ul>
+      <div className="movie-grid">
         {filteredMovies.map((movie) => (
-          <li key={movie._id}>
-            <Link to={`/movie/${movie._id}`}>
-              {movie.title} - Average Rating:{" "}
-              {movie.averageRating || "Not rated"}
-            </Link>
-          </li>
+          <div key={movie._id} className="movie-card">
+            <Link to={`/movie/${movie._id}`}>{movie.title}</Link>
+            <div className="rating">
+              <span>⭐{movie.averageRating || "Not rated"}</span>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
