@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getMovieById, deleteReview } from "../api";
 import ReviewForm from "./ReviewForm";
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const fetchMovie = useCallback(async () => {
     try {
@@ -19,6 +20,10 @@ const MovieDetails = () => {
   useEffect(() => {
     fetchMovie();
   }, [fetchMovie]);
+
+  const handleEditMovie = () => {
+    navigate(`/edit-movie/${id}`); // Navigate to the edit movie route
+  };
 
   const onReviewAdded = useCallback((newReview) => {
     // Reload the page to update the reviews
@@ -61,6 +66,8 @@ const MovieDetails = () => {
       <p>{movie.description}</p>
       <p>Release Date: {new Date(movie.releaseDate).toDateString()}</p>
       <p>Average Rating: {movie.averageRating}</p>
+      <button onClick={handleEditMovie}>Edit Movie</button>
+
       <h2>Reviews</h2>
       <ul>
         {movie.reviews.map((review) => (

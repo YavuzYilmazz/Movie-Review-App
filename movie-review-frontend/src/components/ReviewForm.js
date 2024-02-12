@@ -14,8 +14,7 @@ const ReviewForm = ({ movieId, onReviewAdded }) => {
         date: new Date().toISOString(),
       });
       // After adding the review, trigger a page reload
-      onReviewAdded(response.data); // This will be changed
-      // Clear the form fields
+      onReviewAdded(response.data);
       setReviewText("");
       setRating(0);
     } catch (error) {

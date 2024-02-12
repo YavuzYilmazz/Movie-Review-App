@@ -1,15 +1,19 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import MovieList from "./components/MovieList";
+import Navbar from "./components/Navbar";
+import HomePage from "./pages/HomePage";
+import MovieForm from "./components/MovieForm";
 import MovieDetails from "./components/MovieDetails";
 
 const App = () => {
   return (
     <Router>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<MovieList />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/add-movie" element={<MovieForm />} />
+        <Route path="/edit-movie/:id" element={<MovieForm />} />
         <Route path="/movie/:id" element={<MovieDetails />} />
-        {/* Add other routes here */}
       </Routes>
     </Router>
   );
