@@ -46,7 +46,7 @@ body {
 
 .rating {
   position: absolute;
-  top: 15px;
+  top: 16px;
   right: 10px;
   background-color: #f5de50; /* Apply golden yellow background */
   color: #333; /* Set text color to dark */
@@ -67,7 +67,7 @@ body {
 }
 
 .movie-card a:hover {
-  color: #fff; /* Change color to white on hover */
+  color: #e41111; /* Change color to white on hover */
 }
 
 .movie-card:hover {
