@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieById, deleteReview } from "../api";
 import ReviewForm from "./ReviewForm";
@@ -7,18 +7,18 @@ const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const { id } = useParams();
 
-  useEffect(() => {
-    fetchMovie();
-  }, [id]);
-
-  const fetchMovie = async () => {
+  const fetchMovie = useCallback(async () => {
     try {
       const response = await getMovieById(id);
       setMovie(response.data);
     } catch (error) {
       console.error("Error fetching movie details:", error);
     }
-  };
+  }, [id]);
+
+  useEffect(() => {
+    fetchMovie();
+  }, [fetchMovie]);
 
   const handleDeleteReview = async (reviewId) => {
     try {
