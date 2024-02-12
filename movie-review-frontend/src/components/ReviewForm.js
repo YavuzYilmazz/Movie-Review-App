@@ -1,4 +1,3 @@
-// ReviewForm.js
 import React, { useState } from "react";
 import { addReview } from "../api";
 
@@ -6,21 +5,21 @@ const ReviewForm = ({ movieId, onReviewAdded }) => {
   const [reviewText, setReviewText] = useState("");
   const [rating, setRating] = useState(0);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
-      const review = {
+      const response = await addReview(movieId, {
         body: reviewText,
-        rating: parseFloat(rating),
-        date: new Date(),
-      };
-      const response = await addReview(movieId, review);
-      onReviewAdded(response.data); // Update the parent component with the new review
+        rating: Number(rating),
+        date: new Date().toISOString(),
+      });
+      // After adding the review, trigger a page reload
+      onReviewAdded(response.data); // This will be changed
+      // Clear the form fields
       setReviewText("");
       setRating(0);
     } catch (error) {
-      console.error("Error adding review:", error);
-      // Handle the error accordingly (e.g., show an error message to the user)
+      console.error("Error occurred while adding the review:", error);
     }
   };
 

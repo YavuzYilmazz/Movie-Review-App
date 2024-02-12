@@ -1,4 +1,3 @@
-// MovieDetails.js
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieById, deleteReview } from "../api";
@@ -21,24 +20,34 @@ const MovieDetails = () => {
     fetchMovie();
   }, [fetchMovie]);
 
-  const onReviewAdded = (newReview) => {
-    setMovie((prevMovie) => ({
-      ...prevMovie,
-      reviews: [...prevMovie.reviews, newReview],
-      // Update averageRating if needed, here we just append the review
-    }));
-  };
+  const onReviewAdded = useCallback((newReview) => {
+    // Reload the page to update the reviews
+    window.location.reload();
+  }, []);
 
   const handleDeleteReview = async (reviewId) => {
     try {
       await deleteReview(id, reviewId);
-      setMovie((prevMovie) => ({
-        ...prevMovie,
-        reviews: prevMovie.reviews.filter((review) => review._id !== reviewId),
-        // Update averageRating if needed after deletion
-      }));
+      setMovie((prevMovie) => {
+        // Remove the deleted review from the state
+        const updatedReviews = prevMovie.reviews.filter(
+          (review) => review._id !== reviewId
+        );
+
+        // Recalculate the average rating
+        const averageRating =
+          updatedReviews.reduce((acc, item) => acc + item.rating, 0) /
+          (updatedReviews.length || 1);
+
+        // Update the state with the new reviews and average rating
+        return {
+          ...prevMovie,
+          reviews: updatedReviews,
+          averageRating: updatedReviews.length ? averageRating.toFixed(1) : 0,
+        };
+      });
     } catch (error) {
-      console.error("Error deleting review:", error);
+      console.error("Error occurred while deleting the review:", error);
     }
   };
 
