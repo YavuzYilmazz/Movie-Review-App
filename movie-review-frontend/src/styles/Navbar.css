@@ -1,0 +1,58 @@
+nav {
+  background-color: #333; /* Updated the navbar color to a suitable dark shade */
+  padding: 1rem 2rem; /* Ample padding for airy feel */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #f5de50; /* Golden yellow bottom border for emphasis */
+}
+.nav-links {
+  display: flex;
+  gap: 1rem; /* Adjust the space between your navigation links as needed */
+}
+
+nav div {
+  display: flex; /* Display nav items in a flex row */
+  align-items: center; /* Center items vertically */
+}
+
+nav div:first-child {
+  margin-right: 3rem; /* Adds margin to the right of the first link container */
+}
+
+nav div:last-child {
+  font-weight: bold; /* Makes the text bold */
+  color: #c0c0c0; /* A lighter grey color, adjust as needed */
+}
+
+nav div a {
+  color: #f5de50; /* Golden yellow text color */
+  text-decoration: none; /* Remove the underline from links */
+  padding: 0.5rem 1rem; /* Padding for clickable area */
+  border-radius: 5px; /* Slightly rounded corners for aesthetic */
+  transition: background-color 0.3s ease; /* Smooth transition for background */
+}
+
+nav div a:hover {
+  background-color: #f5de50; /* Golden yellow background on hover */
+  color: #333; /* Dark text color on hover for contrast */
+  text-decoration: none; /* Ensure no underline appears on hover */
+}
+
+.design-credit a {
+  color: #c0c0c0; /* Set your desired color, lighter grey for example */
+  text-decoration: none; /* Remove underline from links */
+  font-weight: normal; /* Set font weight to normal */
+  background: none; /* Ensure no background is applied */
+  border: none; /* Ensure no borders are applied */
+  padding: 0; /* Remove any padding that might create a button effect */
+  margin: 0; /* Reset margin to avoid extra space */
+  transition: none; /* Remove any transitions */
+}
+
+.design-credit a:hover,
+.design-credit a:focus {
+  color: #f5de50; /* Change color on hover or focus for interactivity, optional */
+  background: none; /* Ensure no background change on hover or focus */
+  transform: none; /* Ensure no scaling or moving on hover or focus */
+}

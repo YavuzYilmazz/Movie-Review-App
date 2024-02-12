@@ -26,7 +26,7 @@ const MovieList = () => {
 
   return (
     <div className="movie-list-container">
-      <h1>Movie List</h1>
+      <h1>Movies</h1>
       <input
         type="text"
         className="movie-list-input"
