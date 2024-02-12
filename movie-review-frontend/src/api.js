@@ -18,6 +18,10 @@ const addReview = async (movieId, review) => {
   return await axios.post(`${API_URL}/movies/review/${movieId}`, review);
 };
 
+const deleteReview = async (movieId, reviewId) => {
+  return await axios.delete(`${API_URL}/movies/${movieId}/reviews/${reviewId}`);
+};
+
 const updateMovie = async (movieId, movie) => {
   return await axios.put(`${API_URL}/movies/${movieId}`, movie);
 };
@@ -33,4 +37,5 @@ export {
   addReview,
   updateMovie,
   deleteMovie,
+  deleteReview,
 };
