@@ -62,7 +62,7 @@ class MoviesController {
     }
   }
 
-  // Add a review to a movie
+  // Add a review to a movie and update average rating
   static async addReview(req, res) {
     try {
       const movie = await Movie.findById(req.params.id);
@@ -79,6 +79,15 @@ class MoviesController {
 
       movie.reviews.push(review);
 
+      const totalRatings = movie.reviews.reduce(
+        (acc, curr) => acc + (curr.rating || 0),
+        0
+      );
+      const averageRating =
+        movie.reviews.length > 0 ? totalRatings / movie.reviews.length : 0;
+
+      movie.averageRating = Number(averageRating.toFixed(1));
+
       await movie.save();
       res.json(movie);
     } catch (error) {
@@ -86,7 +95,7 @@ class MoviesController {
     }
   }
 
-  // Delete a review
+  // Delete a review and update average rating
   static async deleteReview(req, res) {
     try {
       const movie = await Movie.findById(req.params.movieId);
@@ -95,6 +104,16 @@ class MoviesController {
       movie.reviews = movie.reviews.filter(
         (review) => review._id.toString() !== req.params.reviewId
       );
+
+      let average = 0;
+      if (movie.reviews.length > 0) {
+        average =
+          movie.reviews.reduce((acc, curr) => acc + curr.rating, 0) /
+          movie.reviews.length;
+        movie.averageRating = Number(average.toFixed(1));
+      } else {
+        movie.averageRating = 0;
+      }
 
       await movie.save();
       res.json({ message: "Review deleted successfully" });
