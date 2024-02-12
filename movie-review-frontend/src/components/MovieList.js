@@ -24,7 +24,10 @@ const MovieList = () => {
       <ul>
         {movies.map((movie) => (
           <li key={movie._id}>
-            <Link to={`/movie/${movie._id}`}>{movie.title}</Link>
+            <Link to={`/movie/${movie._id}`}>
+              {movie.title} - Average Rating:{" "}
+              {movie.averageRating || "Not rated"}
+            </Link>
           </li>
         ))}
       </ul>
