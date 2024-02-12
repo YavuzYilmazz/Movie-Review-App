@@ -87,7 +87,7 @@ class MoviesController {
   }
 
   // Delete a review
-  static async deletereview(req, res) {
+  static async deleteReview(req, res) {
     try {
       const movie = await Movie.findById(req.params.movieId);
       if (!movie) return res.status(404).json({ message: "Movie not found" });
