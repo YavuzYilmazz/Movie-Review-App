@@ -7,5 +7,7 @@ router.get("/:id", moviesController.getMovieById);
 router.post("/", moviesController.addMovie);
 router.put("/:id", moviesController.updateMovie);
 router.delete("/:id", moviesController.deleteMovie);
+router.post("/review/:id", moviesController.addReview);
+router.delete("/:movieId/reviews/:reviewId", moviesController.deletereview);
 
 module.exports = router;

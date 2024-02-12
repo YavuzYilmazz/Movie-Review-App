@@ -61,6 +61,47 @@ class MoviesController {
       res.status(500).json({ message: error.message });
     }
   }
+
+  // Add a review to a movie
+  static async addReview(req, res) {
+    try {
+      const movie = await Movie.findById(req.params.id);
+      if (!movie) return res.status(404).json({ message: "Movie not found" });
+
+      const review = req.body;
+      if (
+        typeof review.rating !== "number" ||
+        review.rating < 0 ||
+        review.rating > 5
+      ) {
+        return res.status(400).json({ message: "Invalid rating value" });
+      }
+
+      movie.reviews.push(review);
+
+      await movie.save();
+      res.json(movie);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  }
+
+  // Delete a review
+  static async deletereview(req, res) {
+    try {
+      const movie = await Movie.findById(req.params.movieId);
+      if (!movie) return res.status(404).json({ message: "Movie not found" });
+
+      movie.reviews = movie.reviews.filter(
+        (review) => review._id.toString() !== req.params.reviewId
+      );
+
+      await movie.save();
+      res.json({ message: "Review deleted successfully" });
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  }
 }
 
 module.exports = MoviesController;
