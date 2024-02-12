@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
+const moviesRoutes = require("./routes/moviesRoutes");
 
 //middleware
 app.use(bodyParser.json());
