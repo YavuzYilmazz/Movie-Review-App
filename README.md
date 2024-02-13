@@ -26,53 +26,35 @@ This application is a full-stack MERN project that allows users to add, edit, de
 
 Clone the repository:
 ```bash
-
 git clone https://github.com/YavuzYilmazz/movie-review-app.git
-
-```
-```bash
 cd movie-review-app
-```
-
-```bash
 cd movie-review-backend
 ```
 
-change the app.js file to include your MongoDB URI
+Change the `app.js` file to include your MongoDB URI.
 
 ```bash
 npm install
-```
-
-```bash
 npm start
 ```
 
 ```bash
 cd movie-review-frontend
-```
-
-```bash
 npm install
-```
-
-```bash
 npm start
-
 ```
 
-GET /api/movies - Retrieve all movies
-POST /api/movies - Add a new movie
-GET /api/movies/:id - Retrieve a movie by ID
-PUT /api/movies/:id - Update a movie by ID
-DELETE /api/movies/:id - Delete a movie by ID
-POST /api/movies/:id/reviews - Add a review to a movie
-DELETE /api/movies/:id/reviews/:reviewId - Delete a review
+## API Endpoints
 
+| Method | Endpoint                         | Description                           |
+|--------|----------------------------------|---------------------------------------|
+| GET    | /api/movies                      | Retrieve all movies                   |
+| POST   | /api/movies                      | Add a new movie                       |
+| GET    | /api/movies/:id                  | Retrieve a movie by ID                |
+| PUT    | /api/movies/:id                  | Update a movie by ID                  |
+| DELETE | /api/movies/:id                  | Delete a movie by ID                  |
+| POST   | /api/movies/:id/reviews          | Add a review to a movie               |
+| DELETE | /api/movies/:id/reviews/:reviewId| Delete a review by review ID          |
 
 ## Contact
-If you have any questions or need help with the setup, feel free to reach out to me at [`yavuz.yilmaz1@outlook.com`]
-
-
-
-
+If you have any questions or need help with the setup, feel free to reach out to me at [`yavuz.yilmaz1@outlook.com`].
