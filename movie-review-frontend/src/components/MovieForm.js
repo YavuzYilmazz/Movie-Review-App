@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { addMovie, getMovieById, updateMovie } from "../api";
+import "../styles/MovieForm.css";
 
 const MovieForm = () => {
   const [movie, setMovie] = useState({
@@ -53,7 +54,7 @@ const MovieForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="movie-form" onSubmit={handleSubmit}>
       <div>
         <label htmlFor="title">Title:</label>
         <input
