@@ -9,6 +9,7 @@ This application is a full-stack MERN project that allows users to add, edit, de
 - Edit existing movies
 - Delete movies
 - Write reviews for movies
+- Delete reviews
 - View all reviews for a specific movie
 
 ## Tech Stack
@@ -32,6 +33,9 @@ cd movie-review-backend
 ```
 
 Change the `app.js` file to include your MongoDB URI.
+![MongoDB Connection](images/Connection.png)
+
+
 You need schema like this in your db:
 
 ![MongoDB Schema](images/MongoDB-Schema.png)
