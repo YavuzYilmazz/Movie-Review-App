@@ -32,11 +32,39 @@ cd movie-review-backend
 ```
 
 Change the `app.js` file to include your MongoDB URI.
+You need schema like this in your db:
+
+![MongoDB Schema](images/MongoDB-Schema.png)
+
+```json
+{
+    "title": "Inception",
+    "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.",
+    "releaseDate": "2010-07-16T00:00:00.000Z",
+    "averageRating": 5,
+    "reviews": [
+      {
+        "body": "Mind-blowing and thought-provoking!",
+        "rating": 5,
+        "date": "2021-01-01T00:00:00.000Z"
+      },
+      {
+        "body": "Incredible visuals and a gripping story.",
+        "rating": 5,
+        "date": "2021-02-15T00:00:00.000Z"
+      }
+    ]
+  }
+```
+
+after that, run the following commands:
 
 ```bash
 npm install
 npm start
 ```
+
+Open a new terminal and run the following commands:
 
 ```bash
 cd movie-review-frontend
