@@ -68,7 +68,6 @@ You can use List.json file to add some data to your db.
 ```bash
 after that, run the following commands:
 
-```bash
 npm install
 node app.js
 ```
