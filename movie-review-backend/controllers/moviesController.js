@@ -72,7 +72,7 @@ class MoviesController {
       if (
         typeof review.rating !== "number" ||
         review.rating < 0 ||
-        review.rating > 5
+        review.rating > 10
       ) {
         return res.status(400).json({ message: "Invalid rating value" });
       }
