@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getMovieById, deleteReview, deleteMovie } from "../api";
 import ReviewForm from "./ReviewForm";
+import "../styles/MovieDetails.css";
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
@@ -70,27 +71,39 @@ const MovieDetails = () => {
   }
 
   return (
-    <div>
+    <div className="movie-details-container">
       <h1>{movie.title}</h1>
       <p>{movie.description}</p>
-      <p>Release Date: {new Date(movie.releaseDate).toDateString()}</p>
-      <p>Average Rating: {movie.averageRating}</p>
-      <button onClick={handleEditMovie}>Edit Movie</button>
-      <button onClick={handleDeleteMovie}>Delete Movie</button>
+      <div className="movie-metadata">
+        <span>Release Date: {new Date(movie.releaseDate).toDateString()}</span>
+        <span>Average Rating: {movie.averageRating}</span>
+      </div>
 
-      <h2>Reviews</h2>
-      <ul>
+      <div className="movie-actions">
+        <button className="edit-movie-btn" onClick={handleEditMovie}>
+          Edit Movie
+        </button>
+        <button className="delete-movie-btn" onClick={handleDeleteMovie}>
+          Delete Movie
+        </button>
+      </div>
+
+      <div className="reviews-section">
+        <h2>Reviews</h2>
         {movie.reviews.map((review) => (
-          <li key={review._id}>
-            <p>{review.body}</p>
-            <p>Rating: {review.rating}</p>
-            <p>Date: {new Date(review.date).toDateString()}</p>
+          <div key={review._id} className="review-item">
+            <p className="review-text">{review.body}</p>
+            <div className="review-metadata">
+              <span>Rating: ⭐{review.rating} /10</span>
+              <span>Date: {new Date(review.date).toDateString()}</span>
+            </div>
             <button onClick={() => handleDeleteReview(review._id)}>
               Delete Review
             </button>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
+
       <ReviewForm movieId={id} onReviewAdded={onReviewAdded} />
     </div>
   );

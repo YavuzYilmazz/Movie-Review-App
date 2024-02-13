@@ -1,0 +1,86 @@
+.movie-details-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem;
+  background-color: #2c2c2c;
+  color: #f5de50;
+}
+@media screen and (min-width: 1024px) {
+  .movie-details-container {
+    padding: 2rem 4rem; /* Increase padding on larger screens */
+  }
+}
+
+.movie-details-container h1,
+.movie-details-container p {
+  margin-bottom: 0.5rem;
+}
+
+.movie-metadata span,
+.review-metadata span {
+  display: block;
+  margin-bottom: 1rem;
+  color: #f5de50;
+}
+
+.edit-movie-btn {
+  background-color: #bcb911; /* Green background */
+  color: white; /* White text */
+}
+
+.delete-movie-btn {
+  background-color: #f44336; /* Red background */
+  color: white; /* White text */
+}
+
+.movie-details-container button {
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform and shadow transitions */
+}
+
+.movie-details-container button:hover {
+  transform: scale(1.05); /* Slightly increase button size */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+.reviews-section {
+  margin-top: 2rem;
+  border-top: 2px solid #f5de50;
+  padding-top: 1rem;
+}
+
+.review-item {
+  background-color: #333;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-left: 4px solid #f5de50; /* Highlighting bar on the left */
+}
+
+.review-text {
+  font-size: 1rem;
+  color: #f5de50; /* The color of the review text */
+}
+
+.review-metadata {
+  font-size: 0.875rem;
+  color: #aaa; /* A lighter color for metadata */
+}
+
+.review-item p {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.review-item button {
+  background-color: #d9534f;
+
+  margin-top: 1rem; /* Add space above the button */
+}
+
+.review-item button:hover {
+  background-color: #c9302c;
+}
