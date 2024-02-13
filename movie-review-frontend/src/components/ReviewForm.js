@@ -7,13 +7,22 @@ import "../styles/ReviewForm.css";
 const ReviewForm = ({ movieId, onReviewAdded }) => {
   const [reviewText, setReviewText] = useState("");
   const [rating, setRating] = useState(0);
+  const [ratingError, setRatingError] = useState(false); // State to handle rating error message
 
   const changeRating = (newRating) => {
     setRating(newRating);
+    if (newRating > 0) {
+      setRatingError(false); // Hide error message if a valid rating is set
+    }
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (rating === 0) {
+      setRatingError(true); // Show error message if no rating
+      return; // Prevent form submission
+    }
+
     try {
       const response = await addReview(movieId, {
         body: reviewText,
@@ -41,6 +50,7 @@ const ReviewForm = ({ movieId, onReviewAdded }) => {
           starDimension="28px"
           starSpacing="2px"
         />
+        {ratingError && <p className="rating-error">Please select a rating.</p>}
         <div className="rating-feedback-placeholder"></div>
         {rating > 0 && (
           <div className="rating-feedback">

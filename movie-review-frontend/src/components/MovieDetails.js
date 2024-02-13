@@ -76,7 +76,7 @@ const MovieDetails = () => {
       <p>{movie.description}</p>
       <div className="movie-metadata">
         <span>Release Date: {new Date(movie.releaseDate).toDateString()}</span>
-        <span>Average Rating: {movie.averageRating}</span>
+        <span>Average Rating: ⭐{movie.averageRating}/10</span>
       </div>
 
       <div className="movie-actions">

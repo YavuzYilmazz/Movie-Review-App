@@ -39,7 +39,7 @@ const MovieList = () => {
           <div key={movie._id} className="movie-card">
             <Link to={`/movie/${movie._id}`}>{movie.title}</Link>
             <div className="rating">
-              <span>⭐{movie.averageRating || "Not rated"}</span>
+              <span>⭐{movie.averageRating || "Not rated"}/10 </span>
             </div>
           </div>
         ))}

@@ -36,6 +36,12 @@
   margin-top: -15px; /* Space above the feedback message */
 }
 
+.rating-error {
+  color: #de0707; /* Red color for errors */
+  margin-top: 5px;
+  font-size: 14px;
+}
+
 .rating-given .rating-feedback {
   visibility: visible;
 }

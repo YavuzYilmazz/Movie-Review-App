@@ -15,7 +15,7 @@ const Navbar = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Design by Yavuz Yılmaz
+          Developed by Yavuz Yılmaz
         </a>
       </div>
     </nav>
