@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Inception",
+    "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.",
+    "releaseDate": "2010-07-16T00:00:00.000Z",
+    "averageRating": 4.8,
+    "reviews": [
+      {
+        "body": "Mind-blowing and thought-provoking!",
+        "rating": 5,
+        "date": "2021-01-01T00:00:00.000Z"
+      },
+      {
+        "body": "Incredible visuals and a gripping story.",
+        "rating": 5,
+        "date": "2021-02-15T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "title": "The Matrix",
+    "description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+    "releaseDate": "1999-03-31T00:00:00.000Z",
+    "averageRating": 4.7,
+    "reviews": [
+      {
+        "body": "A groundbreaking sci-fi masterpiece.",
+        "rating": 5,
+        "date": "2021-03-10T00:00:00.000Z"
+      },
+      {
+        "body": "Still holds up as a genre-defining classic.",
+        "rating": 4.5,
+        "date": "2021-04-20T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "title": "Interstellar",
+    "description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    "releaseDate": "2014-11-07T00:00:00.000Z",
+    "averageRating": 4.6,
+    "reviews": [
+      {
+        "body": "Emotional, visually stunning, and deep.",
+        "rating": 5,
+        "date": "2021-05-25T00:00:00.000Z"
+      },
+      {
+        "body": "A mesmerizing space epic that explores complex themes.",
+        "rating": 4.2,
+        "date": "2021-06-30T00:00:00.000Z"
+      }
+    ]
+  }
+]

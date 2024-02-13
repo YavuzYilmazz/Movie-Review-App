@@ -62,7 +62,7 @@ You need schema like this in your db:
 ```
 
 
-You can use List.js file to add some data to your db.
+You can use List.json file to add some data to your db.
 
 
 ```bash
