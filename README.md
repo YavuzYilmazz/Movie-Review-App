@@ -29,22 +29,34 @@ Clone the repository:
 
 git clone https://github.com/YavuzYilmazz/movie-review-app.git
 
+```
+```bash
 cd movie-review-app
+```
 
+```bash
 cd movie-review-backend
+```
 
 change the app.js file to include your MongoDB URI
 
-MONGO_URI=your_mongodb_uri
-
+```bash
 npm install
+```
 
+```bash
 npm start
+```
 
+```bash
 cd movie-review-frontend
+```
 
+```bash
 npm install
+```
 
+```bash
 npm start
 
 ```
