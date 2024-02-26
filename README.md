@@ -96,4 +96,4 @@ npm start
 If you have any questions or need help with the setup, feel free to reach out to me at [`yavuz.yilmaz1@outlook.com`].
 
 ## Help Video
-You can watch this video https://www.loom.com/share/26c12333a9754dddbf6a19586b8e4af5?sid=9c262fd1-f891-4454-9f71-c7b56260636e
+You can watch this video https://www.youtube.com/watch?v=cYLNsJnN1aE
